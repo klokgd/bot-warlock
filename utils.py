@@ -32,11 +32,9 @@ def generate_answer(answer):
     list_items = []
 
     for item in answers:
-        list_items.append(item)
+        message = item
 
-    print(list_items[0])
+    print(mes)
     # Заполняем разметку перемешанными элементами
 
     return message
-
-
