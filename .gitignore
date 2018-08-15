@@ -2,7 +2,7 @@
 *~
 __pycache__
 warlock-dop
-db
+.db
 test
 /config.py
 /sqliter.py
