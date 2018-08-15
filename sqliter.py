@@ -12,7 +12,7 @@ class SQLighter:
     def select_single(self, rownum):
         """ Получаем одну строку с номером rownum """
         with self.connection:
-            return self.cursor.execute('SELECT * FROM warlock WHERE id = ?', (rownum,)).fetchall()[0]
+            return self.cursor.execute('SELECT * FROM warlock WHERE id = ?', (rownum,)).fetchone()
     def count_rows(self):
         """ Считаем количество строк """
         with self.connection:

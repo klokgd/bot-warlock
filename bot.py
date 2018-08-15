@@ -8,12 +8,11 @@ import utils
 from telebot import types
 bot = telebot.TeleBot(config.token)
 
-@bot.message_handler(func=lambda message: True, regexp="([Вв]арлок|[WwVv]arlo[ck]|k)")
+@bot.message_handler(func=lambda message: True, regexp="([Вв]ар[лок|луша|лоша]|[WwVv]arlo[ck|k]|[Вв]хуриндар)")
 def get_answer(message):
 	db_worker = sqlighter(config.database_name)
 	row = db_worker.select_single(random.randint(1, utils.get_rows_count()))
-	message = row
-	bot.send_message(message.chat.id, format(message))
+	bot.forward_message(to_chat_id, from_chat_id, row[0])
 	db_worker.close()
 
 if __name__ == '__main__':
