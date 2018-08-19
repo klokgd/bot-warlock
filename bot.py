@@ -2,12 +2,9 @@ import config
 import telebot
 import random
 from sqlighter import sqlighter
-import os
-import time
 import utils
 from telebot import types, apihelper
-import telegram
-from telegram.ext import Updater
+
 
 apihelper.proxy = {
     'http': 'socks5://127.0.0.1:9150',

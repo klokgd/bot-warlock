@@ -1,6 +1,5 @@
 import shelve
 from telebot import types
-from random import shuffle
 from sqlighter import sqlighter
 from config import database_name, shelve_name
 
@@ -23,18 +22,3 @@ def get_rows_count():
         rowsnum = storage['rows_count']
     return rowsnum
 
-def generate_answer(answer):
-    """
-    Создаем массив для верного отображения из базы данных
-    """
-    answers = '{}'.format(answer)
-    # Создаем лист (массив) и записываем в него все элементы
-    list_items = []
-
-    for item in answers:
-        message = item
-
-    print(mes)
-    # Заполняем разметку перемешанными элементами
-
-    return message
