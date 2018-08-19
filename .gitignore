@@ -4,5 +4,4 @@ __pycache__
 warlock-dop
 *.db
 test
-/config.py
 /sqliter.py
