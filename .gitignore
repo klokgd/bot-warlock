@@ -5,3 +5,4 @@ warlock-dop
 *.db
 test
 /sqliter.py
+myvenv
