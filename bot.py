@@ -22,13 +22,17 @@ bot = telebot.TeleBot(config.token)
 restricted_messages = ["Варлок", "варлок", "Вхуриндар", "угнетать", "угнетают", "либерал", "либерализм", "варлуша", "варлоша"]
 
 @bot.message_handler(regexp="([Вв]ар[лок|луша|лоша]|[WwVv]arlo[ck|k]|[Вв]хуриндар)")
-
 def get_answer(message):
-	to_chat_id = '-237829042'
+	message.chat.type = 'group'
+	print(message.chat.type)
 	db_worker = sqlighter(config.database_name)
 	row = db_worker.select_single(random.randint(1, utils.get_rows_count()))
 	bot.reply_to(message, row[0].format(message.text))
 	db_worker.close()
+
+@bot.message_handler(commands="start")
+def hello(message):
+	bot.send_message(message.chat.id, "хуй соси")
 
 if __name__ == '__main__':
     utils.count_rows()
