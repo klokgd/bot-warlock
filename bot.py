@@ -18,7 +18,7 @@ bot = telebot.TeleBot(config.token)
 
 #restricted_messages = ["Варлок", "варлок", "Вхуриндар", "вхуриндар", "хейтер", "хейтеры", "работает", "Работает!", "практика", "маг", "угнетать", "угнетают", "либерал", "либерализм", "варлуша", "варлоша"]
 
-@bot.message_handler(regexp="([Вв]ар|лок|луша|лоша|]|[WwVv]arlo[ck|k]|[Вв]хуриндар|[Хх]ейтер\D+|[Рр]абота\D+|[Пп]рактика|[Мм]аг\D+|[Уу]гнета\D+|[Лл]иберал\D+)")
+@bot.message_handler(regexp="([Вв]ар|лок|луша|лоша|]|[WwVv]arlo[ck|k]|[Вв]хуриндар|[Хх]ейтер\D{1,6}|[Рр]абота\D{1,6}|[Пп]рактика|[Мм]аг\D{1,6}|[Уу]гнета\D{1,6}|([Лл]иберал\D{1,6})|[Вв]уки|[Рр]епорт\D{1,6}|срач\D{1,6}|патворкинг)")
 def get_answer(message):
 	db_worker = sqlighter(config.database_name)
 	row = db_worker.select_single(random.randint(1, utils.get_rows_count()))
