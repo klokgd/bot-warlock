@@ -1,7 +1,7 @@
 import shelve
 from telebot import types
 from sqlighter import sqlighter
-from config import database_name, shelve_name
+from config import database_name
 
 def count_rows():
     """
@@ -10,8 +10,6 @@ def count_rows():
     """
     db = sqlighter(database_name)
     rowsnum = db.count_rows()
-    with shelve.open(shelve_name) as storage:
-    	storage['rows_count'] = rowsnum
     return rowsnum
 
 
