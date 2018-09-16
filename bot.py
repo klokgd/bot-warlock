@@ -14,7 +14,7 @@ apihelper.proxy = {
 
 bot = telebot.TeleBot(config.token, skip_pending=True)
 
-reg = "(^| )[Вв]ар|лок|луша|лоша|]|(^| )[WwVv]arlo|(^| )[Ввх]уриндар|(^| )[Хх]ейтер|(^| )[Рр]абота|(^| )[Пп]рактика|(^| )[Мм]аг|(^| )[Уу]гнета|(^| )([Лл]иберал)|(^| )[Вв]уки|(^| )[Рр]епорт|(^| )срач|(^| )патворкинг|(^| )[Рр]усал|(^| )[Фф]еи"
+reg = "(^| )[В|в]ар|лок|луша|лоша|]|(^| )[WwVv]arlo|(^| )[Ввх]уриндар|(^| )[Хх]ейтер|(^| )[Рр]абота|(^| )[Пп]рактика|(^| )[Мм]аг|(^| )[Уу]гнета|(^| )([Лл]иберал)|(^| )[Вв]уки|(^| )[Рр]епорт|(^| )срач|(^| )патворкинг|(^| )[Рр]усал|(^| )[Фф]еи"
 
 
 @bot.message_handler(content_types="text")
@@ -24,10 +24,10 @@ def get_answer(message):
     match = re.search(reg, message.text)
     try:
         if match:
-            time.sleep(random.randint(15, 60))
+            time.sleep(random.randint(15, 30))
             bot.reply_to(message, row[0].format(message.text))
         elif message.reply_to_message.from_user.id == bot.get_me().id:
-            time.sleep(random.randint(15, 60))
+            time.sleep(random.randint(15, 30))
             bot.reply_to(message, row[0].format(message.text))
     except:
         time.sleep(10)
